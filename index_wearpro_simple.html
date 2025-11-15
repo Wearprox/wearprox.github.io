@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WearPro – Fabrico e Design Têxtil</title>
+  <meta name="description" content="WearPro – Fabrico e design têxtil. Personalização de roupa, fardamentos e merch para empresas, universidades e desporto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3ebdd;
+      --bg-light: #faf4ec;
+      --text: #1f1f1f;
+      --muted: #7b6c61;
+      --accent: #c58663;
+      --accent-dark: #aa6947;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAV */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0));
+      color: #fff;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .nav-logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.15rem;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.15s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 0.8rem;
+      border-radius: 999px;
+      padding: 0.45rem 0.95rem;
+      border: 1px solid rgba(255,255,255,0.75);
+      cursor: pointer;
+      background: transparent;
+      color: #fff;
+    }
+
+    .nav-cta:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("hero-wearpro.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.1), rgba(0,0,0,0.55));
+      z-index: -1;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      margin-top: 2.5rem;
+    }
+
+    .hero-brand {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 3.2vw, 3rem);
+      letter-spacing: 0.08em;
+    }
+
+    .hero-subbrand {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.75rem;
+      margin-top: 0.3rem;
+    }
+
+    .hero-heading {
+      margin-top: 2.2rem;
+      font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+      font-weight: 600;
+    }
+
+    .hero-lead {
+      margin-top: 0.7rem;
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .btn-main {
+      margin-top: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2.8rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-main:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    }
+
+    .hero-tags {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      opacity: 0.88;
+    }
+
+    .hero-tag-pill {
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* SECTIONS BASE */
+
+    main {
+      background: var(--bg);
+    }
+
+    section.section {
+      padding: 4rem 0 3.5rem;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.4rem;
+    }
+
+    .section-heading h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-heading p {
+      max-width: 520px;
+      margin: 0.2rem auto 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* PRODUTOS */
+
+    .produtos {
+      background: var(--bg);
+    }
+
+    .produtos-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 1.5rem;
+    }
+
+    .produto-card {
+      text-align: center;
+    }
+
+    .produto-img-wrap {
+      background: var(--bg-light);
+      border-radius: 24px;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      margin-bottom: 1.1rem;
+    }
+
+    .produto-img {
+      max-height: 260px;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      padding: 0.6rem 1.6rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9rem;
+      border: none;
+      cursor: default;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    /* TRABALHOS */
+
+    .trabalhos {
+      background: var(--bg-light);
+    }
+
+    .trabalhos-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1.6rem;
+    }
+
+    .trabalho-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      padding: 1.3rem 1.3rem 1.1rem;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .trabalho-card img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 0.9rem;
+      object-fit: cover;
+      max-height: 220px;
+    }
+
+    .trabalho-titulo {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .trabalho-setor {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    /* PERSONALIZAÇÃO */
+
+    .personalizacao {
+      background: var(--bg);
+    }
+
+    .personalizacao-grid {
+      max-width: 680px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .personalizacao-item-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.1rem;
+      border-radius: 999px;
+      border: 2px solid rgba(197,134,99,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(197,134,99,0.45);
+    }
+
+    .personalizacao .pill-btn {
+      cursor: pointer;
+      background: var(--accent);
+    }
+
+    .personalizacao .pill-btn:hover {
+      background: var(--accent-dark);
+    }
+
+    /* TÉCNICAS USADAS */
+
+    .tecnicas {
+      background: var(--bg-light);
+    }
+
+    .tecnicas-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .tecnica-card img {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto 1rem;
+      border-radius: 4px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+    }
+
+    .tecnica-card .pill-btn {
+      margin-bottom: 0.9rem;
+      cursor: default;
+    }
+
+    .tecnica-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* SOBRE NÓS */
+
+    .sobre-nos {
+      background: var(--bg);
+    }
+
+    .sobre-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .sobre-wrapper h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.3rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .sobre-text {
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .sobre-text p {
+      margin-bottom: 1rem;
+    }
+
+    .sobre-text p:last-of-type {
+      margin-bottom: 2.4rem;
+    }
+
+    .sobre-icones {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      font-size: 1.5rem;
+    }
+
+    .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* CONTACTO SIMPLES */
+
+    .contacto {
+      background: var(--bg-light);
+    }
+
+    .contact-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+
+    .btn-email {
+      margin-top: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2.4rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.98rem;
+      cursor: pointer;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    }
+
+    .btn-email:hover {
+      background: var(--accent-dark);
+    }
+
+    footer {
+      padding: 1.8rem 0 2.1rem;
+      background: #111;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .nav { padding-inline: 1rem; }
+      .produtos-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .trabalhos-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .tecnicas-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 4.5rem;
+      }
+      .produtos-grid,
+      .trabalhos-grid,
+      .personalizacao-grid,
+      .tecnicas-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <div class="nav-logo">
+        <div class="nav-logo-mark">W</div>
+        <span>WearPro</span>
+      </div>
+      <div class="nav-links">
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#tecnicas">Técnicas</a>
+        <a href="#sobre-nos">Sobre Nós</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <button class="nav-cta" onclick="window.location.href='mailto:geral@wearpro.pt?subject=Pedido%20de%20or%C3%A7amento%20WearPro';">
+        Pedir orçamento
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="topo">
+      <div class="hero-inner">
+        <div class="hero-brand">WearPro</div>
+        <div class="hero-subbrand">MADE FOR COMFORT</div>
+        <h1 class="hero-heading">Fabrico e Design Têxtil</h1>
+        <p class="hero-lead">
+          Personalização de fardamentos, merch e peças têxteis para empresas, equipas desportivas e universidades.
+        </p>
+        <button class="btn-main" onclick="window.location.href='mailto:geral@wearpro.pt?subject=Pedido%20de%20or%C3%A7amento%20WearPro';">
+          Pedir Orçamento
+        </button>
+        <div class="hero-tags">
+          <span class="hero-tag-pill">Fardamento profissional</span>
+          <span class="hero-tag-pill">Equipamentos desportivos</span>
+          <span class="hero-tag-pill">Universidades & escolas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUTOS (opcional, mantém visual das tuas imagens) -->
+    <section class="section produtos" id="produtos">
+      <div class="wrapper">
+        <div class="section-heading">
+          <h2>Produtos</h2>
+          <p>Trabalhamos vários tipos de peças – escolhe as que fazem mais sentido para a tua equipa.</p>
+        </div>
+
+        <div class="produtos-grid">
+          <div class="produto-card">
+            <div class="produto-img-wrap">
+              <img src="produto-tshirt.jpg" alt="T-shirt WearPro" class="produto-img" />
+            </div>
+            <button class="pill-btn">T-shirts / Pólos</button>
+          </div>
+
+          <div class="produto-card">
+            <div class="produto-img-wrap">
+              <img src="produto-sweat.jpg" alt="Sweat WearPro" class="produto-img" />
+            </div>
+            <button class="pill-btn">Sweats</button>
+          </div>
+
+          <div class="produto-card">
+            <div class="produto-img-wrap">
+              <img src="produto-diversos.jpg" alt="Casaco WearPro" class="produto-img" />
+            </div>
+            <button class="pill-btn">Diversos</button>
+          </div>
+
+          <div class="produto-card">
+            <div class="produto-img-wrap">
+              <img src="produto-impermeavel.jpg" alt="Impermeável WearPro" class="produto-img" />
+            </div>
+            <button class="pill-btn">Impermeáveis / Casacos</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRABALHOS REALIZADOS -->
+    <section class="section trabalhos" id="trabalhos">
+      <div class="wrapper">
+        <div class="section-heading">
+          <h2>Trabalhos realizados</h2>
+          <p>Alguns exemplos de peças personalizadas que já produzimos para clientes em diferentes sectores.</p>
+        </div>
+
+        <div class="trabalhos-grid">
+          <div class="trabalho-card">
+            <img src="trabalho1.jpg" alt="Trabalho WearPro 1">
+            <div class="trabalho-titulo">Equipamento de ginásio</div>
+            <div class="trabalho-setor">Desporto & Fitness</div>
+            <p>Camisolas técnicas personalizadas para equipa de ginásio, com logótipo frente e costas.</p>
+          </div>
+          <div class="trabalho-card">
+            <img src="trabalho2.jpg" alt="Trabalho WearPro 2">
+            <div class="trabalho-titulo">Farda de construção</div>
+            <div class="trabalho-setor">Construção civil</div>
+            <p>Polos e calças de trabalho com branding discreto, pensados para o dia-a-dia em obra.</p>
+          </div>
+          <div class="trabalho-card">
+            <img src="trabalho3.jpg" alt="Trabalho WearPro 3">
+            <div class="trabalho-titulo">Hoodies de curso</div>
+            <div class="trabalho-setor">Universidade</div>
+            <p>Hoodies personalizados para finalistas, com design exclusivo criado em conjunto com os alunos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONALIZAÇÃO -->
+    <section class="section personalizacao" id="personalizacao">
+      <div class="wrapper">
+        <div class="section-heading">
+          <h2>Personalização</h2>
+          <p>Escolhe os detalhes certos para o teu projecto – tamanhos, cores e combinações pensadas para a tua equipa.</p>
+        </div>
+
+        <div class="personalizacao-grid">
+          <div class="personalizacao-item">
+            <div class="personalizacao-item-icon">↕</div>
+            <button class="pill-btn">Tabela de tamanhos</button>
+          </div>
+          <div class="personalizacao-item">
+            <div class="personalizacao-item-icon">⬡</div>
+            <button class="pill-btn">Tabela de cores</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÉCNICAS USADAS -->
+    <section class="section tecnicas" id="tecnicas">
+      <div class="wrapper">
+        <div class="section-heading">
+          <h2>Técnicas usadas</h2>
+          <p>Selecionamos a técnica de impressão mais adequada para o tipo de peça, quantidade e efeito que pretendes.</p>
+        </div>
+
+        <div class="tecnicas-grid">
+          <div class="tecnica-card">
+            <img src="tecnica-bordado.jpg" alt="Exemplo de bordado" />
+            <button class="pill-btn">Bordado</button>
+            <p class="tecnica-desc">O tipo de personalização mais procurado.</p>
+          </div>
+          <div class="tecnica-card">
+            <img src="tecnica-serigrafia.jpg" alt="Exemplo de serigrafia" />
+            <button class="pill-btn">Serigrafia</button>
+            <p class="tecnica-desc">Um tipo de estampagem mais duradouro.</p>
+          </div>
+          <div class="tecnica-card">
+            <img src="tecnica-dtf.jpg" alt="Exemplo de impressão DTF" />
+            <button class="pill-btn">DTF (Direct to film)</button>
+            <p class="tecnica-desc">Uma opção para imagens complexas e com várias cores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section class="section sobre-nos" id="sobre-nos">
+      <div class="wrapper">
+        <div class="sobre-wrapper">
+          <h2>Sobre Nós</h2>
+          <div class="sobre-text">
+            <p>Apresentamos com entusiasmo a WearPro!</p>
+            <p>Uma marca inovadora fundada por dois jovens empreendedores com uma visão única: fornecer roupas personalizadas que expressam a tua identidade de forma marcante.</p>
+            <p>Num mercado saturado de opções padrão, a WearPro destaca-se ao oferecer uma ampla gama de produtos personalizados, desde peças corporativas com o logo da tua empresa até designs exclusivos para os estudantes universitários, abraçando a individualidade e a diversidade.</p>
+            <p>Se és um empresário à procura de fortalecer a identidade da tua marca ou um estudante universitário a querer representar com orgulho o teu curso, a WearPro está aqui para transformar as tuas ideias em realidade.</p>
+            <p>Com um foco claro na qualidade, estilo e atendimento excepcional ao cliente, a WearPro trabalha incansavelmente para garantir que cada peça personalizada seja produzida de forma a superar as expectativas dos nossos clientes.</p>
+            <p>Escolhe a WearPro e veste-te com confiança, com estilo e originalidade. Sê único. Marca pela diferença!</p>
+            <p>Junta-te a nós na jornada de expressão pessoal e profissional.</p>
+          </div>
+
+          <div class="sobre-icones">
+            <a href="mailto:geral@wearpro.pt" class="icon-circle" aria-label="E-mail">✉️</a>
+            <a href="https://www.instagram.com/wearpro" target="_blank" rel="noopener" class="icon-circle" aria-label="Instagram">⌾</a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener" class="icon-circle" aria-label="Facebook">f</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO SIMPLES -->
+    <section class="section contacto" id="contacto">
+      <div class="wrapper">
+        <div class="section-heading">
+          <h2>Pedir orçamento</h2>
+          <p>Envia-nos directamente um e-mail com o que pretendes. Respondemos com uma proposta simples e directa.</p>
+        </div>
+
+        <div class="contact-content">
+          <p>
+            Clica no botão abaixo para abrir o teu e-mail já com o assunto preparado.<br>
+            No corpo da mensagem, indica:
+          </p>
+          <p style="margin-top:0.7rem;">
+            • Tipo de peça (t-shirts, polos, hoodies, etc.)<br>
+            • Quantidade aproximada<br>
+            • Cores desejadas<br>
+            • Posições do logótipo (frente, costas, manga, etc.)<br>
+            • Prazo ideal de entrega
+          </p>
+
+          <button class="btn-email" onclick="window.location.href='mailto:geral@wearpro.pt?subject=Pedido%20de%20or%C3%A7amento%20WearPro';">
+            Enviar e-mail para orçamento
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="ano"></span> WearPro — Fabrico e design têxtil.</span>
+      <span>Segue-nos em <a href="https://www.instagram.com/wearpro" target="_blank" rel="noopener">Instagram</a>.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
